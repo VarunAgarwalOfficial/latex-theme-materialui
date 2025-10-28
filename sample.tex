@@ -1,0 +1,201 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{theme}
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+% Define custom material boxes
+\definematerialbox{answerstyle}{Answer}{materialIndigo}
+\definematerialbox{corollarystyle}{Corollary}{materialOrange}
+\definematerialbox{notestyle}{Note}{materialBlue}
+\definematerialbox{warningstyle}{Warning}{materialRed}
+\definematerialbox{tipstyle}{Tip}{materialGreen}
+
+\title{MaterialUI Theme Sample Document}
+\author{Example Author \\ \url{example@email.com}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+This document demonstrates the features of the MaterialUI LaTeX theme, a clean and modern theme inspired by Material Design principles.
+
+\section{Material Design Boxes}
+
+The theme provides a convenient command to create styled boxes with different colors and titles.
+
+\subsection{Answer Box}
+
+\begin{mdframed}[style=answerstyle]
+This is an answer box using the \texttt{materialIndigo} color. It's perfect for displaying solutions to problems or exercises.
+
+You can include math: $E = mc^2$, and even equations:
+\begin{equation}
+    \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+\end{equation}
+\end{mdframed}
+
+\subsection{Corollary Box}
+
+\begin{mdframed}[style=corollarystyle]
+This is a corollary box using \texttt{materialOrange}. Perfect for highlighting important results or theorems.
+
+\textbf{Corollary:} If $f$ is continuous on $[a,b]$, then $f$ is integrable on $[a,b]$.
+\end{mdframed}
+
+\subsection{Note Box}
+
+\begin{mdframed}[style=notestyle]
+This is a note box using \texttt{materialBlue}. Use it for additional explanations or remarks.
+
+\begin{itemize}
+\item Item one
+\item Item two with math: $\alpha + \beta = \gamma$
+\item Item three
+\end{itemize}
+\end{mdframed}
+
+\subsection{Warning Box}
+
+\begin{mdframed}[style=warningstyle]
+This is a warning box using \texttt{materialRed}. Use it to highlight common mistakes or important caveats.
+
+\textbf{Warning:} Division by zero is undefined in standard arithmetic!
+\end{mdframed}
+
+\subsection{Tip Box}
+
+\begin{mdframed}[style=tipstyle]
+This is a tip box using \texttt{materialGreen}. Perfect for helpful hints or best practices.
+
+\textbf{Tip:} Always check your boundary conditions when solving differential equations.
+\end{mdframed}
+
+\section{Code Listings}
+
+The theme provides syntax-highlighted code listings with Material colors.
+
+\subsection{Python Example}
+
+\begin{lstlisting}[language=Python]
+def fibonacci(n):
+    """Calculate the nth Fibonacci number."""
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Calculate first 10 Fibonacci numbers
+for i in range(10):
+    print(f"F({i}) = {fibonacci(i)}")
+\end{lstlisting}
+
+\subsection{JavaScript Example}
+
+\begin{lstlisting}[language=Java]
+const quickSort = (arr) => {
+  if (arr.length <= 1) return arr;
+
+  const pivot = arr[arr.length - 1];
+  const left = arr.filter((x, i) => x <= pivot && i < arr.length - 1);
+  const right = arr.filter(x => x > pivot);
+
+  return [...quickSort(left), pivot, ...quickSort(right)];
+};
+\end{lstlisting}
+
+\section{Tables}
+
+The theme works beautifully with booktabs for professional tables.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Algorithm} & \textbf{Time Complexity} & \textbf{Space Complexity} \\
+\midrule
+Bubble Sort & $O(n^2)$ & $O(1)$ \\
+Quick Sort & $O(n \log n)$ & $O(\log n)$ \\
+Merge Sort & $O(n \log n)$ & $O(n)$ \\
+Heap Sort & $O(n \log n)$ & $O(1)$ \\
+\bottomrule
+\end{tabular}
+\caption{Comparison of sorting algorithms}
+\end{table}
+
+\section{Typography}
+
+The theme uses the \textbf{Fira Sans} font family for a clean, modern look.
+
+\subsection{Text Formatting}
+
+Here is some \textbf{bold text}, \textit{italic text}, and \texttt{monospaced text}.
+
+\subsection{Mathematics}
+
+Inline math works beautifully: $f(x) = \sum_{i=0}^{n} a_i x^i$
+
+Display math is equally clean:
+\begin{align*}
+\nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} \\
+\nabla \times \mathbf{B} &= \mu_0 \mathbf{J} + \mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t} \\
+\nabla \cdot \mathbf{E} &= \frac{\rho}{\epsilon_0} \\
+\nabla \cdot \mathbf{B} &= 0
+\end{align*}
+
+\section{Lists}
+
+\subsection{Itemize}
+
+\begin{itemize}
+\item First item
+\item Second item with nested list:
+    \begin{itemize}
+    \item Nested item 1
+    \item Nested item 2
+    \end{itemize}
+\item Third item
+\end{itemize}
+
+\subsection{Enumerate}
+
+\begin{enumerate}
+\item First step
+\item Second step
+\item Third step with math: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+\end{enumerate}
+
+\section{Color Palette}
+
+The MaterialUI theme includes these Material Design colors:
+
+\begin{itemize}
+\item \textcolor{materialBlue}{materialBlue} -- \#2196F3
+\item \textcolor{materialIndigo}{materialIndigo} -- \#3F51B5
+\item \textcolor{materialGreen}{materialGreen} -- \#4CAF50
+\item \textcolor{materialOrange}{materialOrange} -- \#FF9800
+\item \textcolor{materialRed}{materialRed} -- \#F44336
+\item \textcolor{materialGrey}{materialGrey} -- \#9E9E9E
+\end{itemize}
+
+\section{Conclusion}
+
+This sample document demonstrates the key features of the MaterialUI theme. The theme provides:
+
+\begin{mdframed}[style=tipstyle]
+\begin{itemize}
+\item Material Design color palette
+\item Custom box generator for styled environments
+\item Syntax-highlighted code listings
+\item Modern typography with Fira Sans
+\item Professional table support
+\item Clean spacing and layout
+\end{itemize}
+\end{mdframed}
+
+Try it out in your own documents!
+
+\end{document}
