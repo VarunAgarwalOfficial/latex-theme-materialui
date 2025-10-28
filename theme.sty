@@ -1,0 +1,108 @@
+% theme.sty
+% Clean documentation style inspired by Metropolis theme docs
+\ProvidesPackage{theme}[2025/10/28 Modern Documentation Style]
+
+\RequirePackage{parskip}
+\RequirePackage{setspace}
+\RequirePackage{xspace}
+\RequirePackage{xcolor}
+\RequirePackage{enumitem}
+\RequirePackage{listings}
+\RequirePackage{hyperref}
+
+% Spacing
+\onehalfspacing
+
+% Colours
+\definecolor{mDarkBrown}{HTML}{604c38}
+\definecolor{mDarkTeal}{HTML}{23373b}
+\definecolor{mLightBrown}{HTML}{EB811B}
+\definecolor{mLightGreen}{HTML}{14B03D}
+\definecolor{mBackground}{HTML}{FFFFFF}
+
+% Font setup for XeLaTeX
+\RequirePackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+
+\setmainfont[BoldFont={Fira Sans}]{Fira Sans Light}
+\setmonofont{Fira Mono}
+\newfontfamily\liningfont[Numbers={Lining}]{Fira Sans Light}
+
+% List spacing
+\setlist[itemize]{noitemsep}
+\setlist[enumerate]{noitemsep}
+
+% Code listings
+\lstset{
+  basicstyle=\liningfont\ttfamily,
+  keywordstyle=\color{mLightBrown}\bfseries,
+  commentstyle=\color{mLightGreen},
+  stringstyle=\color{mLightGreen},
+  backgroundcolor=\color{mBackground},
+  numbers=none,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  frame=none,
+  tabsize=2,
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=false,
+  aboveskip=1em,
+  belowskip=1em,
+}
+
+% Hyperlinks
+\hypersetup{
+  colorlinks=true,
+  linkcolor=mLightBrown,
+  menucolor=mLightBrown,
+  urlcolor=mLightBrown
+}
+
+% Clean TOC styling
+\RequirePackage{titletoc}
+\titlecontents{section}
+  [1.5em]
+  {}
+  {\contentslabel{1.5em}}
+  {\hspace*{-1.5em}}
+  {\titlerule*[0.8em]{.}\contentspage}
+
+\titlecontents{subsection}
+  [3.8em]
+  {}
+  {\contentslabel{2.3em}}
+  {\hspace*{-2.3em}}
+  {\titlerule*[0.8em]{.}\contentspage}
+
+% Section and subsection formatting
+\RequirePackage{titlesec}
+\titleformat{\section}
+  {\Large\bfseries\scshape}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\large\bfseries\scshape}
+  {\thesubsection}{1em}{}
+
+% Upright math
+\usepackage{unicode-math}
+\setmathfont{FiraMath-Regular.otf}
+\setmathfont[range=up, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
+\setmathfont[range=it, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
+\setmathfont[range=bfup, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
+\setmathfont[range=bfit, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
+% Fallback for missing symbols (like bowtie)
+\setmathfont[range={"22C8}]{Latin Modern Math}
+
+% Custom option description command
+\newcommand{\DescribeOption}[4]{
+  \medskip\noindent
+  \texttt{\textbf{#1}}
+  \begin{quote}
+    \textit{\textbf{\textcolor{mLightGreen}{#2}}}\dotfill\,#3\par
+    \vspace{0.5em}#4\par
+  \end{quote}
+}
+
+\endinput
