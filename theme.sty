@@ -35,9 +35,9 @@
 \RequirePackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}
 
-\setmainfont[BoldFont={Fira Sans}]{Fira Sans Light}
+\setmainfont[BoldFont={Fira Sans Bold}]{Fira Sans}
 \setmonofont{Fira Mono}
-\newfontfamily\liningfont[Numbers={Lining}]{Fira Sans Light}
+\newfontfamily\liningfont[Numbers={Lining}]{Fira Sans}
 
 % List spacing
 \setlist[itemize]{noitemsep}
@@ -49,12 +49,14 @@
   keywordstyle=\color{mLightBrown}\bfseries,
   commentstyle=\color{mLightGreen},
   stringstyle=\color{mLightGreen},
-  backgroundcolor=\color{mBackground},
+  backgroundcolor=\color{materialLightGrey},
   numbers=none,
   showspaces=false,
   showstringspaces=false,
   showtabs=false,
-  frame=none,
+  frame=single,
+  rulecolor=\color{materialGrey},
+  framesep=10pt,
   tabsize=2,
   captionpos=b,
   breaklines=true,
