@@ -53,24 +53,34 @@ def hello_world():
 \end{lstlisting}
 ```
 
-### Custom Boxes
+### Material Design Boxes
 
-Use mdframed with custom styles:
+The theme provides a convenient command to create styled mdframed environments:
 
 ```latex
-\mdfdefinestyle{answerstyle}{
-    backgroundcolor=materialIndigo!8,
-    linecolor=materialIndigo!60,
-    linewidth=1pt,
-    frametitle={Answer},
-    frametitlebackgroundcolor=materialIndigo!20,
-    frametitlefont=\bfseries\color{materialIndigo}
-}
+% Define custom box styles
+\definematerialbox{answerstyle}{Answer}{materialIndigo}
+\definematerialbox{corollarystyle}{Corollary}{materialOrange}
+\definematerialbox{notestyle}{Note}{materialBlue}
 
+% Use the boxes
 \begin{mdframed}[style=answerstyle]
-Your content here
+Your answer here
+\end{mdframed}
+
+\begin{mdframed}[style=corollarystyle]
+Your corollary here
 \end{mdframed}
 ```
+
+**Command Syntax:**
+```latex
+\definematerialbox{stylename}{Title}{color}
+```
+
+- `stylename`: The name you want to give the style
+- `Title`: The text shown in the box header
+- `color`: Any Material Design color or custom color defined with xcolor
 
 ## License
 
