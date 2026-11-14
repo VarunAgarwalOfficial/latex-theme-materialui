@@ -1,7 +1,9 @@
 % theme.sty
-% Clean documentation style inspired by Metropolis theme docs
-\ProvidesPackage{theme}[2025/10/28 Modern Documentation Style]
+\ProvidesPackage{theme}
 
+% ============================================================================
+% Package imports
+% ============================================================================
 \RequirePackage{parskip}
 \RequirePackage{setspace}
 \RequirePackage{xspace}
@@ -10,18 +12,16 @@
 \RequirePackage{listings}
 \RequirePackage{hyperref}
 \RequirePackage[framemethod=TikZ]{mdframed}
+\RequirePackage{titletoc}
+\RequirePackage{titlesec}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{fontspec}
+\RequirePackage{unicode-math}
 
-% Spacing
-\onehalfspacing
-
-% Colours
-\definecolor{mDarkBrown}{HTML}{604c38}
-\definecolor{mDarkTeal}{HTML}{23373b}
-\definecolor{mLightBrown}{HTML}{EB811B}
-\definecolor{mLightGreen}{HTML}{14B03D}
-\definecolor{mBackground}{HTML}{FFFFFF}
-
-% Material Design color palette
+% ============================================================================
+% Color definitions
+% ============================================================================
 \definecolor{materialBlue}{HTML}{2196F3}
 \definecolor{materialIndigo}{HTML}{3F51B5}
 \definecolor{materialGreen}{HTML}{4CAF50}
@@ -31,52 +31,39 @@
 \definecolor{materialLightGrey}{HTML}{F5F5F5}
 \definecolor{materialDarkGrey}{HTML}{616161}
 
-% Font setup for XeLaTeX
-\RequirePackage{fontspec}
+% ============================================================================
+% Font configuration
+% ============================================================================
 \defaultfontfeatures{Ligatures=TeX}
-
 \setmainfont[BoldFont={Fira Sans}]{Fira Sans Light}
 \setmonofont{Fira Mono}
 \newfontfamily\liningfont[Numbers={Lining}]{Fira Sans Light}
 
-% List spacing
-\setlist[itemize]{noitemsep}
-\setlist[enumerate]{noitemsep}
+% Math fonts
+\setmathfont{FiraMath-Regular.otf}
+\setmathfont[range=up, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
+\setmathfont[range=it, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
+\setmathfont[range=bfup, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
+\setmathfont[range=bfit, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
+\setmathfont[range={"22C8}]{Latin Modern Math} % Fallback for missing symbols
 
-% Code listings
-\lstset{
-  basicstyle=\liningfont\ttfamily,
-  keywordstyle=\color{mLightBrown}\bfseries,
-  commentstyle=\color{mLightGreen},
-  stringstyle=\color{mLightGreen},
-  backgroundcolor=\color{materialLightGrey},
-  numbers=none,
-  showspaces=false,
-  showstringspaces=false,
-  showtabs=false,
-  frame=single,
-  rulecolor=\color{materialGrey},
-  framesep=10pt,
-  xleftmargin=1.2em,
-  xrightmargin=1.2em,
-  tabsize=2,
-  captionpos=b,
-  breaklines=true,
-  breakatwhitespace=false,
-  aboveskip=1em,
-  belowskip=1em,
-}
+% ============================================================================
+% Spacing configuration
+% ============================================================================
 
-% Hyperlinks
+% ============================================================================
+% Hyperlink setup
+% ============================================================================
 \hypersetup{
   colorlinks=true,
-  linkcolor=mLightBrown,
-  menucolor=mLightBrown,
-  urlcolor=mLightBrown
+  linkcolor=materialOrange,
+  menucolor=materialOrange,
+  urlcolor=materialOrange
 }
 
-% Clean TOC styling
-\RequirePackage{titletoc}
+% ============================================================================
+% Table of contents styling
+% ============================================================================
 \titlecontents{section}
   [1.5em]
   {}
@@ -91,35 +78,57 @@
   {\hspace*{-2.3em}}
   {\titlerule*[0.8em]{.}\contentspage}
 
-% Section and subsection formatting
-\RequirePackage{titlesec}
+% ============================================================================
+% Section formatting
+% ============================================================================
 \titleformat{\section}
   {\Large\bfseries\scshape}
-  {\thesection}{1em}{}
+  {\thesection}{0.5em}{}
 \titleformat{\subsection}
   {\large\bfseries\scshape}
-  {\thesubsection}{1em}{}
+  {\thesubsection}{0.5em}{}
 
-% Math packages
-\RequirePackage{amsthm}
-\RequirePackage{mathtools}
+% ============================================================================
+% List formatting
+% ============================================================================
+\setlist[itemize]{noitemsep}
+\setlist[enumerate]{noitemsep}
 
-% Upright math
-\usepackage{unicode-math}
-\setmathfont{FiraMath-Regular.otf}
-\setmathfont[range=up, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
-\setmathfont[range=it, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
-\setmathfont[range=bfup, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
-\setmathfont[range=bfit, math-style=ISO]{Fira Mono}[Scale=MatchLowercase]
-% Fallback for missing symbols (like bowtie)
-\setmathfont[range={"22C8}]{Latin Modern Math}
+% ============================================================================
+% Code listings
+% ============================================================================
+\lstset{
+  basicstyle=\liningfont\ttfamily,
+  keywordstyle=\color{materialOrange}\bfseries,
+  commentstyle=\color{materialGreen},
+  stringstyle=\color{materialGreen},
+  numbers=none,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  frame=single,
+  rulecolor=\color{materialGrey},
+  framesep=10pt,
+  tabsize=2,
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=false,
+  aboveskip=0.5em,
+  belowskip=0.5em,
+  xleftmargin=1.2em,
+  xrightmargin=1.2em
+}
+
+% ============================================================================
+% Custom commands
+% ============================================================================
 
 % Custom option description command
 \newcommand{\DescribeOption}[4]{
   \medskip\noindent
   \texttt{\textbf{#1}}
   \begin{quote}
-    \textit{\textbf{\textcolor{mLightGreen}{#2}}}\dotfill\,#3\par
+    \textit{\textbf{\textcolor{materialGreen}{#2}}}\dotfill\,#3\par
     \vspace{0.5em}#4\par
   \end{quote}
 }
@@ -129,18 +138,16 @@
 % Example: \definematerialbox{answerstyle}{Answer}{materialIndigo}
 \newcommand{\definematerialbox}[3]{%
   \mdfdefinestyle{#1}{%
-    backgroundcolor=#3!8,
+    backgroundcolor=#3!20,
     linecolor=#3!60,
     linewidth=1pt,
-    innertopmargin=1.2em,
-    innerbottommargin=1.2em,
-    innerleftmargin=1.2em,
-    innerrightmargin=1.2em,
-    skipabove=1.5em,
-    skipbelow=1em,
+    innertopmargin=1em,
+    innerbottommargin=1em,
+    skipabove=0.5em,
+    skipbelow=0.5em,
     frametitle={#2},
-    frametitlebackgroundcolor=#3!20,
-    frametitlefont=\bfseries\color{#3}
+    frametitlebackgroundcolor=#3!30,
+    frametitlefont=\bfseries\color{#3},
   }%
 }
 
