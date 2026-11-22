@@ -115,4 +115,4 @@ See `sample.tex` for a complete example demonstrating all features.
 
 ## License
 
-MIT License - feel free to use and modify for your projects.
+MIT. See [LICENSE](LICENSE).
