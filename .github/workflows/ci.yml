@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XeLaTeX and the Fira fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-xetex texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra latexmk fonts-lmodern
+          mkdir -p ~/.fonts
+          ln -s /usr/share/texlive/texmf-dist/fonts/opentype/public/fira ~/.fonts/fira
+          ln -s /usr/share/texlive/texmf-dist/fonts/opentype/public/firamath ~/.fonts/firamath
+          fc-cache -f
+      - run: make check

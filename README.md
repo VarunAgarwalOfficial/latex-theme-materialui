@@ -2,6 +2,8 @@
 
 A clean, modern LaTeX theme inspired by Material Design principles and the Metropolis Beamer theme.
 
+![The first page of sample.pdf](docs/sample.png)
+
 ## Features
 
 - **Material Design Color Palette**: Beautiful, accessible colors from Material Design
@@ -18,7 +20,7 @@ A clean, modern LaTeX theme inspired by Material Design principles and the Metro
 - Fira Mono font
 - FiraMath font
 
-## Installation
+## Run it
 
 Copy `theme.sty` to your LaTeX project directory and include it in your document:
 
@@ -113,6 +115,10 @@ For all $n \in \mathbb{N}$, we have $\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$.
 
 See `sample.tex` for a complete example demonstrating all features.
 
-## License
+## Status
+
+Working, as of 26 November 2026. See [STATUS.md](STATUS.md).
+
+## Licence
 
 MIT. See [LICENSE](LICENSE).
