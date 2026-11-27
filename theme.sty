@@ -31,6 +31,11 @@
 \definecolor{materialLightGrey}{HTML}{F5F5F5}
 \definecolor{materialDarkGrey}{HTML}{616161}
 
+% Darker shades for text on white, so it reads at 4.5:1 or more (WCAG AA).
+% materialOrangeText is Material Deep Orange 900; materialGreenText is Green 800.
+\definecolor{materialOrangeText}{HTML}{BF360C}
+\definecolor{materialGreenText}{HTML}{2E7D32}
+
 % ============================================================================
 % Font configuration
 % ============================================================================
@@ -56,9 +61,9 @@
 % ============================================================================
 \hypersetup{
   colorlinks=true,
-  linkcolor=materialOrange,
-  menucolor=materialOrange,
-  urlcolor=materialOrange
+  linkcolor=materialOrangeText,
+  menucolor=materialOrangeText,
+  urlcolor=materialOrangeText
 }
 
 % ============================================================================
@@ -99,9 +104,9 @@
 % ============================================================================
 \lstset{
   basicstyle=\liningfont\ttfamily,
-  keywordstyle=\color{materialOrange}\bfseries,
-  commentstyle=\color{materialGreen},
-  stringstyle=\color{materialGreen},
+  keywordstyle=\color{materialOrangeText}\bfseries,
+  commentstyle=\color{materialGreenText},
+  stringstyle=\color{materialGreenText},
   numbers=none,
   showspaces=false,
   showstringspaces=false,
@@ -128,7 +133,7 @@
   \medskip\noindent
   \texttt{\textbf{#1}}
   \begin{quote}
-    \textit{\textbf{\textcolor{materialGreen}{#2}}}\dotfill\,#3\par
+    \textit{\textbf{\textcolor{materialGreenText}{#2}}}\dotfill\,#3\par
     \vspace{0.5em}#4\par
   \end{quote}
 }
@@ -147,7 +152,8 @@
     skipbelow=0.5em,
     frametitle={#2},
     frametitlebackgroundcolor=#3!30,
-    frametitlefont=\bfseries\color{#3},
+    % The title is the box colour mixed with 45% black, so it reads on the tint.
+    frametitlefont=\bfseries\color{#3!55!black},
   }%
 }
 

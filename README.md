@@ -6,7 +6,7 @@ A clean, modern LaTeX theme inspired by Material Design principles and the Metro
 
 ## Features
 
-- **Material Design Color Palette**: Beautiful, accessible colors from Material Design
+- **Material Design colour palette**: every text colour reads at 4.5:1 or more on its background (WCAG 2.2 AA). The lowest is 4.91:1, the title of an orange box. `make check` tests this with `contrast.py`
 - **Modern Typography**: Uses Fira Sans Light for regular text, Fira Sans for bold, and Fira Mono for code
 - **Mathematics Support**: Includes amsthm, mathtools, and unicode-math with FiraMath
 - **Clean Code Listings**: Syntax highlighting with Material colors and consistent borders
@@ -29,9 +29,9 @@ Copy `theme.sty` to your LaTeX project directory and include it in your document
 \usepackage{theme}
 ```
 
-## Color Palette
+## Colour palette
 
-The theme includes these Material Design colors:
+The theme includes these Material Design colours for fills, rules and box accents:
 
 - **materialBlue**: `#2196F3`
 - **materialIndigo**: `#3F51B5`
@@ -41,6 +41,13 @@ The theme includes these Material Design colors:
 - **materialGrey**: `#9E9E9E`
 - **materialLightGrey**: `#F5F5F5`
 - **materialDarkGrey**: `#616161`
+
+Text uses darker shades, so it stays readable on white:
+
+- **materialOrangeText**: `#BF360C` (Deep Orange 900), for links and code keywords. 5.60:1 on white.
+- **materialGreenText**: `#2E7D32` (Green 800), for code comments, strings and option names. 5.13:1 on white.
+
+A box title is its colour mixed with 45% black (`#3!55!black`), on a 30% tint of the same colour.
 
 ## Usage
 
@@ -117,7 +124,7 @@ See `sample.tex` for a complete example demonstrating all features.
 
 ## Status
 
-Working, as of 26 November 2026. See [STATUS.md](STATUS.md).
+Complete, and archived on 27 November 2026. See [STATUS.md](STATUS.md).
 
 ## Licence
 
