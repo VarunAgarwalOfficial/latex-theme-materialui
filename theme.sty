@@ -41,7 +41,9 @@
 % ============================================================================
 \defaultfontfeatures{Ligatures=TeX}
 \setmainfont[BoldFont={Fira Sans}]{Fira Sans Light}
-\setmonofont{Fira Mono}
+% By file name, like FiraMath below: some systems also ship oblique Fira Mono
+% faces, and a lookup by family name can pick one as the upright face.
+\setmonofont{FiraMono}[Extension=.otf, UprightFont=*-Regular, BoldFont=*-Bold]
 \newfontfamily\liningfont[Numbers={Lining}]{Fira Sans Light}
 
 % Math fonts
